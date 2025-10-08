@@ -17,7 +17,7 @@ const product = products.find( // menelusuri setiap elemen dalam array products
 // product.id: Mengakses properti id dari setiap item produk dalam array.
 // route.params.id: Ini berasal dari vue-router. route.params berisi parameter dari URL. Jadi, jika URL Anda adalah /product/3, maka route.params.id akan bernilai string "3".
 // parseInt(...): Fungsi ini mengubah nilai string menjadi integer (bilangan bulat). Ini diperlukan karena route.params.id selalu berupa string, sedangkan product.id kemungkinan besar adalah tipe data number. Operator === memeriksa kesamaan nilai dan tipe data, jadi tipe datanya harus sama.
-
+console.log("isi dari produk" , product);
 </script>
 
 <template>
