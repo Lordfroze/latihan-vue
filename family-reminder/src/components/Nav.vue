@@ -1,11 +1,11 @@
 <template>
-    <div class="navbar bg-base-100 shadow-sm">
+    <div class="navbar bg-base-100 shadow-sm z-1">
   <div class="flex-1">
         <router-link to="/" class="btn btn-ghost text-xl">Family Reminder</router-link>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
-      <li><a>Link</a></li>
+      <li><router-link to="/list">List</router-link></li>
       <li>
         <details>
           <summary>Parent</summary>
