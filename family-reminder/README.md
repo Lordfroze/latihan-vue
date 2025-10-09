@@ -39,3 +39,4 @@ npm run build
 
 📆 Progress / Changelog
 - 8 oct 2025 : Initial project setup with Vue 3 and Vite , Tailwind CSS , Router view
+- 9 oct 2025 : tambahkan halaman list, tambahkan form inputan 
