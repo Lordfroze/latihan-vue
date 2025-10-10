@@ -6,7 +6,7 @@
       <p class="py-6">
         Aplikasi pengingat dokumen keluarga dengan Vue 3 dan Tailwind.Dengan fitur reminder, pengguna dapat mengingatkan dokumen penting mereka seperti surat, kontrak, dan surat keterangan.
       </p>
-      <button class="btn btn-primary"><router-link to="list">Mulai</router-link></button>
+      <router-link class="btn btn-primary" active-class="active" to="/list">Mulai</router-link>
     </div>
   </div>
 </div>
