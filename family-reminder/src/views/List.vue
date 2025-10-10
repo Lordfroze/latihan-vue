@@ -1,5 +1,4 @@
 <script setup>
-import Card from '@/components/Card.vue';
 import Modal from '@/components/Modal.vue';
 import Nav from '@/components/Nav.vue';
 </script>
