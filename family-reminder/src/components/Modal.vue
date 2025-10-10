@@ -1,6 +1,35 @@
 <script setup>
 import { ref } from "vue";
-const showForm = ref(false); // state untuk menampilkan dan menyembunyikan form modal
+const showForm = ref(true); // state untuk menampilkan dan menyembunyikan form modal
+const newMemo = ref(''); // state untuk menyimpan inputan user
+const memos = ref([]); // array untuk menyimpan memo
+const errorMessage = ref(""); // state untuk menyimpan pesan error
+
+
+// function untuk menambah memo
+function addMemo() {
+  if (!newMemo.value.trim()) {
+    errorMessage.value = "Memo tidak boleh kosong"; // set pesan error
+    return; // hentikan eksekusi function
+  }
+  errorMessage.value = ""; // clear pesan error setelah inputan valid
+
+  memos.value.push({
+    // tambah memo ke array memos
+    id: Date.now(), // membuat id unik untuk setiap memo dari tanggal sekarang
+    memo: newMemo.value, // isi memo dari inputan user
+    date: new Date().toLocaleDateString("id-ID"), // tanggal memo dibuat
+    // backgroundColor: getRandomColor(), // warna background memo acak
+  });
+  newMemo.value = ""; // clear inputan memo setelah ditambahkan
+  showForm.value = false; // hide form modal setelah ditambahkan
+  document.getElementById("my_modal_1").close(); // close modal setelah ditambahkan
+}
+// function getRandomColor() {
+//   // function untuk membuat warna background acak
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
+
 </script>
 
 <template>
@@ -12,13 +41,31 @@ const showForm = ref(false); // state untuk menampilkan dan menyembunyikan form 
     </div>
     <!-- end Daisy ui + button -->
 
+    <!-- daisy ui card-->
+    {{ memos }}
+    <div class="flex flex-wrap gap-2 justify-center">
+
+      <div v-for="memo in memos" :key="memo.id" class="card card-border bg-base-100 w-96">
+        <div class="card-body">
+          <h2 class="card-title">{{ memo.memo }}</h2>
+          <p>{{ memo.date }}</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">View</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end daisy ui card -->
+
     <!-- daisy ui modal -->
     <!-- Open the modal using ID.showModal() method -->
     <dialog id="my_modal_1" class="modal">
-      <div class="modal-box">
-        <h3 class="text-lg font-bold">Hello!</h3>
-        <textarea class="textarea" placeholder="Bio"></textarea>
+      <div class="modal-box flex flex-col items-baseline justify-center">
+        <h3 class="text-lg font-bold">Halo! {{ newMemo }}</h3>
+        <p v-if="errorMessage" class="form-error text-red-500">{{ errorMessage }}</p>
+        <textarea class="textarea" placeholder="masukkan teks memo" v-model="newMemo"></textarea>
         <div class="modal-action">
+          <button class="btn btn-primary" @click="addMemo">Save</button>
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
             <button class="btn">Close</button>
@@ -27,29 +74,5 @@ const showForm = ref(false); // state untuk menampilkan dan menyembunyikan form 
       </div>
     </dialog>
     <!-- end daisy ui modal -->
-
-    <!-- daisy ui card-->
-    <div class="flex flex-wrap gap-2 justify-center">
-      <div class="card card-border bg-base-100 w-96">
-        <div class="card-body">
-          <h2 class="card-title">Card Title</h2>
-          <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">View</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card card-border bg-base-100 w-96">
-        <div class="card-body">
-          <h2 class="card-title">Card Title</h2>
-          <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">View</button>
-          </div>
-        </div>
-      </div>
-      </div>
-    <!-- end daisy ui card -->
   </main>
 </template>
