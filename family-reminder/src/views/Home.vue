@@ -7,3 +7,11 @@ import Hero from '../components/Hero.vue';
   <Nav />
   <Hero />
 </template>
+
+<style scoped>
+*{
+max-width: screen-width;
+margin: 0 auto;
+}
+
+</style>

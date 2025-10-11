@@ -1,0 +1,29 @@
+<script setup>
+import items from '@/data/items.json';
+</script>
+
+<template>
+    <div class="bg-base-100 border-base-300 collapse border">
+        <input type="checkbox" class="peer" />
+        <div
+            class="collapse-title text-primary-content">
+            Quick Link
+        </div>
+        <div
+            class="collapse-content text-primary-content">
+            <RouterLink v-for="item in items" :key="item.id" :to="`/items/${item.id}`">
+
+                <div class="link link-info">
+                    {{ item.name }}
+                </div>
+            </RouterLink>
+            <RouterLink v-for="memo in memos" :key="memo.id" :to="`/memos/${memo.id}`">
+
+                <div class="link link-info">
+                    {{ memo.name }}
+                </div>
+            </RouterLink>
+            Klik untuk berpindah ke setiap item dari list.
+        </div>
+    </div>
+</template>
