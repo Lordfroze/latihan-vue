@@ -19,6 +19,11 @@ const router = createRouter({ // membuat router
             name: "list",
             component: () => import("../views/List.vue")
         },
+        {
+            path: "/items/:id",
+            name: "items",
+            component: () => import("../data/items.json")
+        }
     ]
 });
 

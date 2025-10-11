@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "pajak pickup",
+        "description": "Pajak pickup grandmax",
+        "date": "2025-01-01",
+        "price": 800000
+    },
+    {
+        "id": 2,
+        "name": "pajak beat",
+        "description": "Pajak beat",
+        "date": "2025-01-01",
+        "price": 500000
+    },
+    {
+        "id": 3,
+        "name": "SIM A",
+        "description": "Perpanjangan SIM A",
+        "date": "2026-01-01",
+        "price": 100000
+    }
+]
