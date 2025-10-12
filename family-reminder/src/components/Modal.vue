@@ -57,7 +57,7 @@ function deleteMemo(id) { // function untuk delete memo
           <p>Tanggal Berakhir dokumen {{ endDate }}</p>
           <p class="text-sm text-gray-500">terahir di update{{ memo.date }}</p>
           <div class="card-actions justify-end">
-            <button class="btn btn-primary">View</button>
+            <!-- <button class="btn btn-primary">View</button> -->
               <button @click="deleteMemo(memo.id)" class="btn btn-outline btn-error">x</button>
               <!-- tombol hapus memo-->
             </div>

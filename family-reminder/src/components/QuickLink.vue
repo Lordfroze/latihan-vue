@@ -17,12 +17,6 @@ import items from '@/data/items.json';
                     {{ item.name }}
                 </div>
             </RouterLink>
-            <RouterLink v-for="memo in memos" :key="memo.id" :to="`/memos/${memo.id}`">
-
-                <div class="link link-info">
-                    {{ memo.name }}
-                </div>
-            </RouterLink>
             Klik untuk berpindah ke setiap item dari list.
         </div>
     </div>
