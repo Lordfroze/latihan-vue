@@ -22,7 +22,7 @@ const router = createRouter({ // membuat router
         {
             path: "/items/:id",
             name: "items",
-            component: () => import("../data/items.json")
+            component: () => import("../views/Item.vue")
         }
     ]
 });
