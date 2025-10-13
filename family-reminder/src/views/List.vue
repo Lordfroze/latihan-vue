@@ -15,7 +15,7 @@ import QuickLink from '@/components/QuickLink.vue';
                 <div class="card-body">
                     <h2 class="card-title">{{ item.name }}</h2>
                     <p>{{ item.description }}</p>
-                    <p>Tanggal Pajak {{ item.date }}</p>
+                    <p>Tanggal {{ item.date }}</p>
                     <p class="text-sm text-gray-500">Harga {{ item.price }}</p>
                     <div class="card-actions justify-end">
                         <RouterLink :to="`/items/${item.id}`" class="btn btn-primary">View</RouterLink>

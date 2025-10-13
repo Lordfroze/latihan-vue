@@ -25,12 +25,12 @@ const isOwnerPage = computed(() => {
 
 <template>
     <Nav />
-    <div class="flex flex-row px-5 py-20">
+    <div v-if="item" class="flex flex-row px-5 py-20">
         <div class="card bg-base-100 w-96 shadow-sm basis-full">
             <div class="card-body">
                 <h2 class="card-title">{{ item.name }}</h2>
                 <p>Deskripsi: {{ item.description }}</p>
-                <p>Tanggal Pajak {{ item.date }}</p>
+                <p>Tanggal {{ item.date }}</p>
                 <p>Harga: {{ item.price }}</p>
                 <RouterView />
                 <button class="btn" @click="showOwner" v-if="!isOwnerPage">
@@ -41,5 +41,8 @@ const isOwnerPage = computed(() => {
                 </div>
             </div>
         </div>
+    </div>
+    <div v-else>
+        <p>Item not found</p>
     </div>
 </template>

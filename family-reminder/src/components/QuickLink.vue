@@ -3,10 +3,10 @@ import items from '@/data/items.json';
 </script>
 
 <template>
-    <div class="bg-base-100 border-base-300 collapse border">
+    <div class="bg-base-100 border-base-300 collapse border text-xs">
         <input type="checkbox" class="peer" />
         <div
-            class="collapse-title text-primary-content">
+            class="collapse-title">
             Quick Link
         </div>
         <div

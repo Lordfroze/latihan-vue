@@ -8,6 +8,11 @@ const router = createRouter({ // membuat router
             name: "home",
             component: () => import("../views/Home.vue"), // mengimport component Home.vue
         }, 
+        { 
+            path: "/home", // path untuk halaman home
+            redirect: "/", // redirect ke halaman home
+            component: () => import("../views/Home.vue"), // mengimport component Home.vue
+        }, 
 
         {
             path: "/about",
@@ -30,7 +35,12 @@ const router = createRouter({ // membuat router
                     component: () => import("../views/Owner.vue")
                 }
             ]
-        }
+        },
+        {
+            path: "/:pathMatch(.*)*", // path untuk halaman 404
+            name: "not-found", // name untuk halaman 404
+            component: () => import("../views/errors/404.vue"), // mengimport component 404.vue
+        },
     ]
 });
 
