@@ -4,27 +4,43 @@
         "name": "pajak pickup",
         "description": "Pajak pickup grandmax",
         "date": "2025-01-01",
-        "price": 800000
+        "price": 800000,
+        "owner": {
+            "name": "John Doe",
+            "email": "johndoe@example.com"
+        }
     },
     {
         "id": 2,
         "name": "pajak motor",
         "description": "Pajak motor beat",
         "date": "2025-01-01",
-        "price": 500000
+        "price": 500000,
+        "owner": {
+            "name": "Jane Doe",
+            "email": "janedoe@example.com"
+        }
     },
     {
         "id": 3,
         "name": "SIM A",
         "description": "Perpanjangan SIM A",
         "date": "2026-01-01",
-        "price": 100000
+        "price": 100000,
+        "owner": {
+            "name": "John Doe",
+            "email": "johndoe@example.com"
+        }
     },
     {
         "id": 4,
         "name": "SIM B",
         "description": "Perpanjangan SIM B",
         "date": "2026-01-01",
-        "price": 100000
+        "price": 100000,
+        "owner": {
+            "name": "Jane Doe",
+            "email": "janedoe@example.com"
+        }
     }
 ]

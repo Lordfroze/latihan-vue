@@ -22,7 +22,14 @@ const router = createRouter({ // membuat router
         {
             path: "/items/:id",
             name: "items",
-            component: () => import("../views/Item.vue")
+            component: () => import("../views/Item.vue"),
+            children: [
+                {
+                    path: "/items/:id/owner",
+                    name: "owner",
+                    component: () => import("../views/Owner.vue")
+                }
+            ]
         }
     ]
 });
