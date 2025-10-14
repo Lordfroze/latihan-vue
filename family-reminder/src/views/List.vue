@@ -2,8 +2,9 @@
 import { ref, watch } from 'vue';
 import Modal from '@/components/Modal.vue';
 import Nav from '@/components/Nav.vue';
-import srcitems from '@/data/items.json';
+import srcitems from '../data/items.json';
 import QuickLink from '@/components/QuickLink.vue';
+import itemcard from '@/components/Itemcard.vue';
 const items = ref(srcitems);
 const cari = ref('');
 
@@ -29,7 +30,7 @@ watch(cari, () => { // memanggil watcher search
         <!-- menampilkan item dengan v-for dari items.json -->
         <div class="flex flex-wrap gap-4 justify-start">
             <!-- menampilkan itemCard.vue -->
-            <itemCard v-for="item in items" :key="item.id" :item="item" />
+            <itemcard v-for="item in items" :key="item.id" :item="item" />
             <!-- menampilkan Modal.vue -->
             <Modal />
             <!-- menampilkan QuickLink.vue -->

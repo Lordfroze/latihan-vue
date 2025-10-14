@@ -1304,9 +1304,6 @@
   .flex {
     display: flex;
   }
-  .grid {
-    display: grid;
-  }
   .btn-circle {
     border-radius: calc(infinity * 1px);
     padding-inline: calc(0.25rem * 0);
@@ -1347,15 +1344,6 @@
       outline-offset: 2px;
     }
   }
-  .grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  .grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
   .flex-col {
     flex-direction: column;
   }
@@ -1380,9 +1368,6 @@
   .justify-start {
     justify-content: flex-start;
   }
-  .justify-items-stretch {
-    justify-items: stretch;
-  }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
@@ -1392,13 +1377,6 @@
   .rounded-t-none {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
-  .border-base-300 {
-    border-color: var(--color-base-300);
   }
   .bg-base-100 {
     background-color: var(--color-base-100);
@@ -1411,12 +1389,6 @@
   }
   .px-1 {
     padding-inline: calc(var(--spacing) * 1);
-  }
-  .px-2 {
-    padding-inline: calc(var(--spacing) * 2);
-  }
-  .px-4 {
-    padding-inline: calc(var(--spacing) * 4);
   }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
@@ -2850,11 +2822,6 @@
     background-position-x: -115%;
   }
 }
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
@@ -2927,7 +2894,6 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
