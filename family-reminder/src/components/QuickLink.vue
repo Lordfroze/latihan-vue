@@ -3,7 +3,7 @@ import items from '@/data/items.json';
 </script>
 
 <template>
-    <div class="bg-base-100 border-base-300 collapse border text-xs">
+    <div class="collapse text-xs">
         <input type="checkbox" class="peer" />
         <div
             class="collapse-title">

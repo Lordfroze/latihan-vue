@@ -42,5 +42,28 @@
             "name": "Jane Doe",
             "email": "janedoe@example.com"
         }
+    },
+    {
+        "id": 5,
+        "name": "pajak mobil",
+        "description": "Pajak mobil grandmax",
+        "date": "2026-01-01",
+        "price": 100000,
+        "owner": {
+            "name": "John Doe",
+            "email": "johndoe@example.com"
+        }
+    },
+    {
+        "id": 6,
+        "name": "pajak motor",
+        "description": "Pajak motor beat",
+        "date": "2026-01-01",
+        "price": 100000,
+        "owner": {
+            "name": "Jane Doe",
+            "email": "janedoe@example.com"
+        }
     }
+
 ]
