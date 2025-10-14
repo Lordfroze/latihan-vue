@@ -4,8 +4,6 @@ import Modal from '@/components/Modal.vue';
 import Nav from '@/components/Nav.vue';
 import srcitems from '@/data/items.json';
 import QuickLink from '@/components/QuickLink.vue';
-import itemCard from '@/components/itemCard.vue';
-
 const items = ref(srcitems);
 const cari = ref('');
 
