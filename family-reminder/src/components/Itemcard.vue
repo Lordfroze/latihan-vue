@@ -1,25 +1,3 @@
-<script setup>
-import { ref, watch } from 'vue';
-import Modal from '@/components/Modal.vue';
-import Nav from '@/components/Nav.vue';
-import srcitems from '@/data/items.json';
-import QuickLink from '@/components/QuickLink.vue';
-
-const items = ref(srcitems);
-const cari = ref('');
-
-// watch(search, (newSearch) => {
-//     items.value = srcitems.filter(item => item.name.toLowerCase().includes(newSearch.toLowerCase()));
-// });
-
-watch(cari, () => { // memanggil watcher search
-    items.value = srcitems.filter((item) => // memfilter data dari srcQuiz
-    {
-        return item.name.toLowerCase().includes(cari.value.toLowerCase()); // mengembalikan nilai title yang sesuai dengan search
-    });
-});
-</script>
-
 <template>
     <Nav />
     <main class="px-2 item-center">
