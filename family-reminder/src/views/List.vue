@@ -33,8 +33,8 @@ watch(cari, () => { // memanggil watcher search
             <itemcard v-for="item in items" :key="item.id" :item="item" />
             <!-- menampilkan Modal.vue -->
             <Modal />
-            <!-- menampilkan QuickLink.vue -->
         </div>
+        <!-- menampilkan QuickLink.vue -->
         <QuickLink />
     </main>
 </template>

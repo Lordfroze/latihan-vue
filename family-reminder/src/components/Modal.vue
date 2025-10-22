@@ -1,3 +1,4 @@
+<!-- MODAL BERISI FORM UNTUK MENAMBAH MEMO KE ARRAY MEMOS -->
 <script setup>
 import { ref } from "vue";
 const newMemo = ref(''); // state untuk menyimpan inputan user

@@ -1,3 +1,4 @@
+<!-- ITEM CARD MENAMPILKAN DATA DARI JSON family-reminder/src/data/items.json -->
 <script setup>
 const {item} = defineProps(["item"])  // menerima prop item dari list.vue
 // console.log(item)
