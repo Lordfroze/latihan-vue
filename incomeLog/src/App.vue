@@ -1,8 +1,7 @@
 <script setup>
+import {RouterView} from 'vue-router';
 </script>
 
 <template>
-  <!-- theme toggle -->
-<input type="checkbox" value="light" class="toggle theme-controller" />
-  <!-- theme toggle -->
+  <RouterView />
 </template>
