@@ -6,17 +6,18 @@ import Pagination from '@/components/Pagination.vue';
 
 <template>
     <div class="px-2">
-        <Navbar />
-        <div class="flex flex-wrap gap-x-3 gap-y-3 mt-5">
-            <Card />
-            <Card />
+        <!-- card -->
+        <div class="mt-5 grid grid-cols-4 gap-2">
             <Card />
             <Card />
             <Card />
             <Card />
         </div>
+        <!-- card end -->
     </div>
+    <!-- pagination -->
     <div class="text-center pt-5 pb-5">
     <Pagination />
     </div>
+    <!-- pagination end -->
 </template>
