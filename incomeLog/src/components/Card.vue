@@ -13,7 +13,7 @@ const {income} = defineProps({
             <p>Uang keluar Rp.0</p>
             <p>Tanggal: {{ income.date }}</p>
             <div class="justify-end card-actions">
-                <button class="btn btn-primary">Buy Now</button>
+                <button class="btn btn-primary">Manage</button>
             </div>
         </div>
     </div>
