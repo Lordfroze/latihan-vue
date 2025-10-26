@@ -1,6 +1,6 @@
 # incomeLog
 
-This template should help get you started developing with Vue 3 in Vite.
+Manage your income and expense with this simple and intuitive application.
 
 ## Recommended IDE Setup
 
