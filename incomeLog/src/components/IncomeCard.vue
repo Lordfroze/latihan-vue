@@ -3,6 +3,14 @@
 const {income} = defineProps({
     income: Object,
 });
+
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
+// membuat function goToProduct
+function goToIncome() {
+    router.push(`/income/${income.id}`);
+}
 </script>
 
 <template>
@@ -13,7 +21,7 @@ const {income} = defineProps({
             <p>Uang keluar Rp.0</p>
             <p>Tanggal: {{ income.date }}</p>
             <div class="justify-end card-actions">
-                <button class="btn btn-primary">Manage</button>
+                <button @click="goToIncome" class="btn btn-primary">Manage</button>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <script setup>
-import { ref, watch, onMounted } from 'vue';
-import Card from '@/components/Card.vue';
+import { ref, watch, onMounted, watchEffect } from 'vue';
+import IncomeCard from '@/components/IncomeCard.vue';
 import Pagination from '@/components/Pagination.vue';
 import axios from 'axios';
 import Loading from '@/components/Loading.vue';
@@ -11,29 +11,23 @@ const limit = ref(5);
 const API_URL = `http://localhost:3000/incomes?_page=${page.value}&_per_page=${limit.value}`;
 const isLoading = ref(true);
 
-// membuat onMounted untuk menampilkan data product ketika halaman pertama kali di load
-onMounted(async () => {
-    try {
-        isLoading.value = true; // mengubah nilai isLoading menjadi true sebelum data product di load
-        // menambahkan await untuk menunggu data product dari server
-        incomes.value = await axios.get(API_URL).then((res) => res.data);
-    } catch (error) {
-        console.log(error);
-    } finally {
-        isLoading.value = false; // mengubah nilai isLoading menjadi false setelah data product di load
-    }
+async function fectchdata() {
+	const API_URL = `http://localhost:3000/incomes?_page=${page.value}&_per_page=${limit.value}`; // membuat state API_URL dengan nilai awal http://localhost:3000/incomes
+	try {
+		isLoading.value = true; // mengubah nilai isLoading menjadi true sebelum data income di load
+		const response = await axios.get(API_URL);
+		incomes.value = response.data;
+	} catch (error) {
+		console.log(error);
+	} finally {
+		isLoading.value = false; // mengubah nilai isLoading menjadi false setelah data product di load
+	}
+}
 
+// Membuat watcher effect untuk memanggil fectchdata setiap kali page atau limit berubah
+watchEffect(() => {
+	fectchdata(); // memanggil fectchdata
 });
-
-// membuat fungsi watch untuk menampilkan data product ketika page / limit berubah
-watch(page, async () => {
-    // menambahkan await untuk menunggu data product dari server
-    incomes.value = await axios
-        .get(`http://localhost:3000/incomes?_page=${page.value}&_per_page=${limit.value}`) // mengubah url dengan page dan limit
-        .then((res) => res.data);
-});
-
-console.log(incomes.value);
 
 // Membuat fungsi changePage
 function changePage(newPage) {
@@ -52,13 +46,12 @@ function changePage(newPage) {
     <!-- loading end -->
     <main v-else>
         <!-- card -->
-        {{ incomes }}
+        <!-- {{ incomes }} -->
         <div class="mt-5 grid grid-cols-4 gap-2 px-2">
-            <Card v-for="(income, index) in incomes.data" :key="index" :income="income" />
+            <IncomeCard v-for="(income, index) in incomes.data" :key="index" :income="income" />
         </div>
         <!-- card end -->
         <!-- pagination -->
-        <button class="btn">Next Page</button>
         <div class="text-center pt-5 pb-5">
             <Pagination :page="page" :totalPages="incomes.pages" @change-Page="changePage" />
         </div>
