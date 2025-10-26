@@ -5,17 +5,13 @@ import Pagination from '@/components/Pagination.vue';
 import axios from 'axios';
 
 const incomes = ref([]);
-// async function getIncomes() {
-//     const response = await axios.get('http://localhost:3000/incomes');
-//     incomes.value = response.data;
-//     console.log(incomes.data);
-// }
-// getIncomes();
+const page = ref(1);
+const limit = ref(5);
 
 // menggunakan await secara langsung untuk dirender dengan Suspense
 incomes.value = await axios
-.get('http://localhost:3000/incomes')
-.then((res) => res.data);
+.get(`http://localhost:3000/incomes?_page=${page.value}&_per_page=${limit.value}`)
+.then((res) => res.data); 
 console.log(incomes.value);
 
 
@@ -25,10 +21,7 @@ console.log(incomes.value);
         <!-- card -->
          {{ incomes }}
         <div class="mt-5 grid grid-cols-4 gap-2 px-2">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Card v-for="(income, index ) in incomes.data" :key="index" :income="income" />
         </div>
         <!-- card end -->
     <!-- pagination -->
