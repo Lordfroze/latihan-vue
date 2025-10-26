@@ -1,8 +1,7 @@
 <template>
-    <div class="join">
-  <button class="join-item btn">1</button>
-  <button class="join-item btn btn-active">2</button>
-  <button class="join-item btn">3</button>
-  <button class="join-item btn">4</button>
+<div class="join">
+  <button class="join-item btn">«</button>
+  <button class="join-item btn">Page 22</button>
+  <button class="join-item btn">»</button>
 </div>
-</template>
+</template> 

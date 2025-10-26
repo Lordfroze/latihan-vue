@@ -1,0 +1,16 @@
+{
+    "incomes": [
+        {
+            "id": 1,
+            "name": "Income 1",
+            "amount": 1000000,
+            "date": "2023-01-01"
+        },
+        {
+            "id": 2,
+            "name": "Income 2",
+            "amount": 2000000,
+            "date": "2023-01-02"
+        }
+    ]
+}
