@@ -7,14 +7,5 @@ import Home from './views/Home.vue';
 
 <template>
   <Navbar />
-  <!-- <RouterView /> -->
-  <Suspense>
-    <template #default>
-      <Home />
-    </template>
-
-    <template #fallback>
-      <div>Loading...</div>
-    </template>
-  </Suspense>
+  <RouterView />
 </template>
