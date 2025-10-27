@@ -2,7 +2,7 @@
   "incomes": [
     {
       "id": "2",
-      "name": "Income 2",
+      "name": "Income  2 editedd",
       "amount": 2000000,
       "date": "2023-01-02"
     },
@@ -25,10 +25,10 @@
       "date": "2023-01-05"
     },
     {
-      "id": "6",
-      "name": "Income 6",
+      "name": "Income 6 edited",
       "amount": 6000000,
-      "date": "2023-01-06"
+      "date": "2023-01-06",
+      "id": "6"
     },
     {
       "id": "7",
@@ -53,6 +53,18 @@
       "name": "Income 10",
       "amount": 10000000,
       "date": "2023-01-10"
+    },
+    {
+      "name": "incomebaru edited",
+      "amount": 10,
+      "date": "2025-10-27",
+      "id": "5fc7"
+    },
+    {
+      "name": "income lagi edited",
+      "amount": 10,
+      "date": "2025-10-27",
+      "id": "31b5"
     }
   ]
 }

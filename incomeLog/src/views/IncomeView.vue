@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'; // import onMounted dan ref dari vue
 import { useRoute, useRouter } from 'vue-router'; // import useRoute dan useRouter dari vue-router
 import axios from 'axios'; // import axios dari axios
-// import ProductForm from '@/components/ProductForm.vue'; // import ProductForm dari @/components/ProductForm.vue
+import IncomeForm from '@/components/IncomeForm.vue'; // import IncomeForm dari @/components/IncomeForm.vue
 
 const route = useRoute();
 const router = useRouter();

@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="navbar-center">
-    <a class="btn btn-ghost text-xl">Income Log</a>
+    <RouterLink to="/" class="btn btn-ghost text-xl">Income Log</RouterLink>
   </div>
   <div class="navbar-end">
     <button class="btn btn-ghost btn-circle">

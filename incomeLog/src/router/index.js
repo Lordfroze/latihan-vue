@@ -16,7 +16,7 @@ const router = createRouter({
       path: '/income/:id',
       name: 'income',
       component: IncomeView
-    }
+    },
   ]
 })
 

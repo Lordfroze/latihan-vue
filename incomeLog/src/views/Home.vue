@@ -4,10 +4,11 @@ import IncomeCard from '@/components/IncomeCard.vue';
 import Pagination from '@/components/Pagination.vue';
 import axios from 'axios';
 import Loading from '@/components/Loading.vue';
+import IncomeForm from '@/components/IncomeForm.vue';
 
 const incomes = ref([]);
 const page = ref(1);
-const limit = ref(5);
+const limit = ref(8);
 const API_URL = `http://localhost:3000/incomes?_page=${page.value}&_per_page=${limit.value}`;
 const isLoading = ref(true);
 
@@ -36,6 +37,16 @@ function changePage(newPage) {
     page.value = newPage; // mengubah nilai page dengan newPage
 }
 
+// Membuat fungsi Create data product
+async function createIncome(income) {
+	try {
+		await axios.post('http://localhost:3000/incomes', income); // membuat data income ke API_URL method sesuai api dari jsonserver
+		fectchdata(); // memanggil fectchdata setelah membuat data income
+	} catch (error) {
+		console.error(error);
+	}
+}
+
 </script>
 
 <template>
@@ -45,8 +56,8 @@ function changePage(newPage) {
     </div>
     <!-- loading end -->
     <main v-else>
+        <IncomeForm @create-income="createIncome" />
         <!-- card -->
-        <!-- {{ incomes }} -->
         <div class="mt-5 grid grid-cols-4 gap-2 px-2">
             <IncomeCard v-for="(income, index) in incomes.data" :key="index" :income="income" />
         </div>
