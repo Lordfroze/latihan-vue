@@ -2,6 +2,7 @@
   <div>
     <div id="page-wrap">
       <div class="grid-wrap">
+        <!-- tampilkan data products dari data-seed.js -->
         <div v-for="product in products" :key="product.id" class="product-item">
           <img :src="product.imageUrl" alt="product image" />
           <h3 class="product-name">{{ product.name }}</h3>

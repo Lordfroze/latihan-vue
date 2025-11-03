@@ -1,11 +1,41 @@
 <template>
   <div>
-    <h1>Details Product</h1>
+    <div id="page-wrap">
+      <div id="img-wrap">
+        <img :src="product.imageUrl" alt="">
+      </div>
+      <div id="product-details">
+        <h1>{{ product.name }}</h1>
+        <h3 id="price">Rp.{{ product.price }}</h3>
+        <p>Average Rating: {{ product.averageRating }}</p>
+        <button id="add-to-cart">Add to Cart</button>
+        <p>{{ product.description }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { products } from '../../data-seed' // import data-seed
 
+export default {
+  data() {
+    return {
+      products // return data products
+    }
+  },
+  // membuat computed property product untuk mengambil data product berdasarkan id dari url
+  computed : {
+    product() {
+      return this.products.find( (p) => {
+        return p.id == this.$route.params.id
+      })
+    }
+  },
+  mounted() {
+    console.log(this.product)
+  }
+}
 </script>
 
 <style scoped>
