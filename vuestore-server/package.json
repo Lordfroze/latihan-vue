@@ -1,0 +1,22 @@
+{
+  "name": "vuestore-server",
+  "version": "1.0.0",
+  "description": "vue store server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongodb",
+    "express",
+    "rest",
+    "api",
+    "vue"
+  ],
+  "author": "yoga",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.19.2"
+  }
+}
