@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="page-wrap">
+    <div id="page-wrap" v-if="product"> <!-- menampilkan page ketika product ada product didapat dari data-seed -->
       <div id="img-wrap">
         <img :src="product.imageUrl" alt="">
       </div>
@@ -12,13 +12,19 @@
         <p>{{ product.description }}</p>
       </div>
     </div>
+  <NotFound v-else/> <!-- menampilkan notfound ketika product tidak ada -->
   </div>
 </template>
 
 <script>
 import { products } from '../../data-seed' // import data-seed
+import NotFound from '../errors/404.vue'
 
 export default {
+  components: {
+    NotFound
+  },
+
   data() {
     return {
       products // return data products
