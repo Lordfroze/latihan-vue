@@ -25,6 +25,10 @@ app.get('/' , (req, res) => {
     })
 })
 
+// Memanggil route dari app/routes/product.route.js
+require('./app/routes/product.route')(app);
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 })

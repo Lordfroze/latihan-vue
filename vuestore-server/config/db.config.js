@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'mongodb://192.168.2.10:27017/vuestore'
+    url: 'mongodb://192.168.2.10:27017/collect_vuestore'
 }
