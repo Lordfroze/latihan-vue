@@ -27,6 +27,8 @@ app.get('/' , (req, res) => {
 
 // Memanggil route dari app/routes/product.route.js
 require('./app/routes/product.route')(app);
+// Memanggil route dari app/routes/order.route.js
+require('./app/routes/order.route')(app);
 
 
 app.listen(PORT, () => {
