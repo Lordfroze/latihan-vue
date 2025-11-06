@@ -36,3 +36,13 @@ npm run dev
 ```sh
 npm run build
 ```
+
+# jalankan json server
+```sh
+npx family-reminder/src/data/items.json
+```
+
+# Jalankan server
+```sh
+npm run dev
+```
