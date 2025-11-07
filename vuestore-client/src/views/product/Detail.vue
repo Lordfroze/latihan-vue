@@ -2,7 +2,7 @@
   <div>
     <div id="page-wrap" v-if="product"> <!-- menampilkan page ketika product ada product didapat dari data-seed -->
       <div id="img-wrap">
-        <img :src="product.imageUrl" alt="">
+        <img :src="`http://localhost:8000${product.imageUrl}`" alt=""> <!-- menampilkan image dari server-->
       </div>
       <div id="product-details">
         <h1>{{ product.name }}</h1>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { products } from '../../data-seed' // import data-seed
+import axios from 'axios'; // import axios
 import NotFound from '../errors/404.vue'
 
 export default {
@@ -27,19 +27,15 @@ export default {
 
   data() {
     return {
-      products // return data products
+      product : {} // menyiapkan object kosong untuk menampung data product
     }
   },
-  // membuat computed property product untuk mengambil data product berdasarkan id dari url
-  computed : {
-    product() {
-      return this.products.find( (p) => {
-        return p.id == this.$route.params.id
-      })
-    }
-  },
-  mounted() {
-    console.log(this.product)
+
+  async created () {
+    const code = this.$route.params.id // mendapatkan product.code dari url
+    const result = await axios.get(`http://localhost:8000/api/products/${code}`) // mengambil data product berdasarkan code dari server
+    // console.log(result.data);
+    this.product = result.data; // assign data product ke object products diatas
   }
 }
 </script>
