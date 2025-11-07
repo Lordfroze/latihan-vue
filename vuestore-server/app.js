@@ -1,8 +1,10 @@
+const cors = require('cors'); // import cors untuk mengaktifkan CORS agar tidak blokir request dari domain lain
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8000;
 const path = require('path') // import parth dari nodejs
 
+app.use(cors()); // middleware untuk mengaktifkan CORS
 app.use(express.json()); // middleware untuk parsing request body menjadi JSON
 app.use(express.urlencoded({ extended: true })); // untuk menerima data form  
 app.use('/img', express.static(path.join(__dirname, './public/img'))) // registerkan directory image
