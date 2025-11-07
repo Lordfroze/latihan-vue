@@ -1,7 +1,7 @@
 const db = require('../models/index') // memanggil model index
 const Order = db.orders  // memanggil db orders
 
-
+// fungsi untuk mencari order berdasarkan user_id
 exports.findOrder = (req, res) => {
     const id = Number(req.params.id)
 
@@ -29,3 +29,25 @@ exports.findOrder = (req, res) => {
     })
 }
 
+// fungsi untuk membuat order
+exports.addToCart = (req, res) => {
+    const id = Number(req.params.id)
+    const productCode = String(req.body.product)
+
+    // mengupdate order dengan menambahkan productCode ke field cart_items berdasar user_id
+    Order.updateOne({
+        user_id : id
+    }, {
+        // menghindari duplikasi productCode di field cart_items
+        $addToSet : {
+            cart_items : productCode // menambahkan productCode ke field cart_items
+        }
+    })
+    .then ((result) => {
+        res.send(result)
+    }).catch ((err) => {
+        res.status(409).send({
+            message: err.message || "Some error occurred while adding to cart."
+        })
+    })
+}
