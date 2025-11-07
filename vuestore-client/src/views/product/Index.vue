@@ -17,6 +17,7 @@
 <script>
 import { products } from '../../data-seed' // import data-seed
 import ProductItem from '../../components/ProductItem.vue' // import ProductItem component
+import axios from 'axios' // import axios
 
 
 
@@ -26,8 +27,14 @@ export default {
   },
   data() {
     return {
-      products // return data products
+      products : [] // menyiapkan array kosong untuk menampung data products
     }
+  },
+  async created(){
+    const result = await axios.get('http://localhost:8000/api/products') // mengambil data products dari server
+    // console.log(result.data);
+    this.products = result.data; // assign data products ke array products
+
   }
 }
 </script>
