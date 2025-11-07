@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8000;
+const path = require('path') // import parth dari nodejs
 
 app.use(express.json()); // middleware untuk parsing request body menjadi JSON
 app.use(express.urlencoded({ extended: true })); // untuk menerima data form  
+app.use('/img', express.static(path.join(__dirname, './public/img'))) // registerkan directory image
 
 // Memanggil model dan seluruh konfigurasinya dari app/models/index.js
 const db = require('./app/models'); // import db
