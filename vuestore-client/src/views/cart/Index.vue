@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { cartItems } from '@/data-seed';
+import axios from 'axios'; // import axios library
 import ItemCart from '../../components/ItemCart.vue' // import ItemCart component
 
 export default {
@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      cartItems,
+      cartItems : [] // menyiapkan array kosong untuk menyimpan item-item di cart
     };
   },
   computed: {
@@ -33,6 +33,19 @@ export default {
       return this.cartItems.reduce((sum, item) => sum + Number(item.price), 0); 
     },
   },
+  async created() {
+    // mengambil data cartItems dari server
+    const result = await axios.get('http://localhost:8000/api/orders/user/1')
+    // membuat object data untuk mengubah respon cartItems dari db menjadi array of object
+    let data = Object.assign({},
+      ...(result.data.map)(
+        result => ({
+          cart_items : result.products
+        })
+      )
+    )
+    this.cartItems = data.cart_items // menyimpan array of object cartItems ke dalam data cartItems
+  }
 }
 </script>
 
