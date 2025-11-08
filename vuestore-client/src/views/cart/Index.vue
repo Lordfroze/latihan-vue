@@ -7,6 +7,7 @@
         v-for="item in cartItems"
         :key="item.id"
         :item="item"
+        v-on:remove-item = "removeFromCart($event)"
       />
       <h3 id="total-price">Total Price: Rp.{{ totalPrice }}</h3>
       <button id="checkout-button">Checkout</button>
@@ -26,6 +27,19 @@ export default {
     return {
       cartItems : [] // menyiapkan array kosong untuk menyimpan item-item di cart
     };
+  },
+  methods : {
+    // method removeFromCart untuk menghapus item dari cart
+    async removeFromCart(product){
+      await axios.delete(
+        `http://localhost:8000/api/orders/delete/user/1/product/${product}`
+      )
+      // menghapus item dari array cartItems
+      let indexCart = this.cartItems.map(function(item){
+        return item.code
+      }).indexOf(product)
+      this.cartItems.splice(indexCart, 1)
+    }
   },
   computed: {
     // Membuat computed property totalPrice untuk menghitung total price dari item-item di cart
