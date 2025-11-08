@@ -7,6 +7,7 @@
       <p>Rp.{{ item.price }}</p>
 
     </div>
+    <!-- mengirim event remove-item ke parent component vuestore-client/src/views/cart/Index.vue -->
     <button class="remove-button" @click="$emit('remove-item', item.code)">Remove</button>
   </div>
 </template>
