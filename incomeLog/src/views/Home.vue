@@ -17,6 +17,7 @@ async function fectchdata() {
 	try {
 		isLoading.value = true; // mengubah nilai isLoading menjadi true sebelum data income di load
 		const response = await axios.get(API_URL);
+        console.log(response);
 		incomes.value = response.data;
 	} catch (error) {
 		console.log(error);
@@ -50,6 +51,7 @@ async function createIncome(income) {
 </script>
 
 <template>
+    {{ incomes}}
     <!-- loading -->
     <div v-if="isLoading">
         <Loading />
@@ -59,7 +61,7 @@ async function createIncome(income) {
         <IncomeForm @create-income="createIncome" />
         <!-- card -->
         <div class="mt-5 grid grid-cols-4 gap-2 px-2">
-            <IncomeCard v-for="(income, index) in incomes.data" :key="index" :income="income" />
+            <IncomeCard v-for="(income, index) in incomes" :key="index" :income="income" />
         </div>
         <!-- card end -->
         <!-- pagination -->
